@@ -16,7 +16,7 @@
 
 namespace Cutator;
 
-class cutator
+class Cutator
 {
     public $currentPage = 1;
     public $itemsPerPage = 10;
