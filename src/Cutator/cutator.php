@@ -50,7 +50,7 @@ class Cutator
     public function getBasicView()
     {
         // For adding later first and last link
-        $nbreLinks          = ($this->showFirstLast===true)?$this->maxLinks:$this->maxLinks-2;
+        $nbreLinks          = ($this->showFirstLast===true)?$this->maxLinks-2:$this->maxLinks;
         $amplitudePoint     = floor($nbreLinks/2);
         $startPoint         = (($this->currentPage-$amplitudePoint)>0)?$this->currentPage-$amplitudePoint:1;
         $potentialEndPoint  = ($startPoint+$nbreLinks)-1;

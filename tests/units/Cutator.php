@@ -15,7 +15,7 @@ class Cutator extends atoum\test
         $ClassToTest = new TestedClass\Cutator();
         $ClassToTest->setTotalItem(99);
         $this->assert->integer($ClassToTest->getTotalPage())->isEqualTo(10);
-        
+
         $ClassToTest->setTotalItem(99)->setItemsPerPage(20);
         $this->assert->integer($ClassToTest->getTotalPage())->isEqualTo(5);
 
@@ -43,13 +43,13 @@ class Cutator extends atoum\test
         $ClassToTest = new TestedClass\Cutator();
         $ClassToTest->setTotalItem(99);
         $this->assert->integer($ClassToTest->getTotalPage())->isEqualTo(10);
-        
+
         $ClassToTest->setTotalItem(99)->setItemsPerPage(20)->setCurrentPage(1);
         $this->assert->integer($ClassToTest->getOffset())->isEqualTo(0);
-        
+
         $ClassToTest->setTotalItem(99)->setItemsPerPage(20)->setCurrentPage(2);
         $this->assert->integer($ClassToTest->getOffset())->isEqualTo(20);
-        
+
         $ClassToTest->setTotalItem(99)->setItemsPerPage(20)->setCurrentPage(3);
         $this->assert->integer($ClassToTest->getOffset())->isEqualTo(40);
     }
@@ -59,11 +59,11 @@ class Cutator extends atoum\test
         $ClassToTest = new TestedClass\Cutator();
         $ClassToTest->setTotalItem(850)->setItemsPerPage(10)->setCurrentPage(1)->setShowFirstLast(false)->setMaxLinks(10);
         $this->assert->array($ClassToTest->getBasicView())->isEqualTo(array('1'=>'1','2'=>'2','3'=>'3','4'=>'4','5'=>'5','6'=>'6','7'=>'7','8'=>'8','9'=>'9','10'=>'10'));
-
+        
         $ClassToTest = new TestedClass\Cutator();
         $ClassToTest->setTotalItem(850)->setItemsPerPage(10)->setCurrentPage(1)->setShowFirstLast(false)->setMaxLinks(8);
         $this->assert->array($ClassToTest->getBasicView())->isEqualTo(array('1'=>'1','2'=>'2','3'=>'3','4'=>'4','5'=>'5','6'=>'6','7'=>'7','8'=>'8'));
-
+        
         $ClassToTest = new TestedClass\Cutator();
         $ClassToTest->setTotalItem(850)->setItemsPerPage(10)->setCurrentPage(1)->setShowFirstLast(false)->setMaxLinks(6);
         $this->assert->array($ClassToTest->getBasicView())->isEqualTo(array('1'=>'1','2'=>'2','3'=>'3','4'=>'4','5'=>'5','6'=>'6'));

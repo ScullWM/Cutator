@@ -1,6 +1,4 @@
-<?php 
-
-
+<?php
 
     ini_set('error_reporting', E_ALL);
     error_reporting(E_ALL);
@@ -10,8 +8,7 @@ include_once __DIR__.'/../../src/Cutator/cutator.php';
 
 use Cutator\Cutator as Cutator;
 
-
-$var = new Cutator();
+$var = new Cutator(array('totalItems'=>850));
 
 $var->setTotalItem(850)->setItemsPerPage(10)->setCurrentPage(1)->setShowFirstLast(false)->setMaxLinks(10);
 
