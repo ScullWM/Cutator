@@ -24,6 +24,8 @@ class Cutator
     public $totalItem;
     public $showFirstLast = false;
     public $offset;
+    public $startName;
+    public $endName;
 
     /**
      * if array given, will dispatch value to class's attributes
@@ -42,18 +44,16 @@ class Cutator
     /**
      * Return simple array for display nav
      *
-     * @version 10-05-2013
+     * @version 13-05-2013
      * @return array
      */
     public function getBasicView()
     {
         // For adding later first and last link
-        if($this->showFirstLast===true) $this->maxLinks = $this->maxLinks-2;
-
-        // Few calcul and verification
-        $amplitudePoint     = floor($this->maxLinks/2);
+        $nbreLinks          = ($this->showFirstLast===true)?$this->maxLinks:$this->maxLinks-2;
+        $amplitudePoint     = floor($nbreLinks/2);
         $startPoint         = (($this->currentPage-$amplitudePoint)>0)?$this->currentPage-$amplitudePoint:1;
-        $potentialEndPoint  = ($startPoint+$this->maxLinks)-1;
+        $potentialEndPoint  = ($startPoint+$nbreLinks)-1;
         $endPoint           = ($potentialEndPoint<$this->getTotalPage())?$potentialEndPoint:$this->getTotalPage();
 
         // Create an array
@@ -62,13 +62,45 @@ class Cutator
 
         // Add FirstLast Links
         if ($this->showFirstLast===true) {
-            $linksView[1] = 'deb';
-            $linksView[$this->getTotalPage()] = 'end';
+            $linksView[1]                     = $this->startName;
+            $linksView[$this->getTotalPage()] = $this->endName;
         }
         // Sort it for direct display
         ksort($linksView);
 
         return $linksView;
+    }
+
+    /**
+     * Return NextPage int
+     * return false if there is no next page
+     *
+     * @return Integer
+     */
+    public function getNextPage()
+    {
+        $nextPage = $this->currentPage+1;
+        if($nextPage>$this->getTotalPage()) {
+            return false;
+        }
+
+        return (int) $nextPage;
+    }
+
+    /**
+     * Return PreviousPage int
+     * return false if there is no previous page
+     *
+     * @return Integer
+     */
+    public function getPreviousPage()
+    {
+        $previousPage = $this->currentPage-1;
+        if($previousPage>$this->getTotalPage()) {
+            return false;
+        }
+
+        return (int) $previousPage;
     }
 
     /**
