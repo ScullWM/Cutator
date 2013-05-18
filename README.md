@@ -19,6 +19,8 @@ $var->setTotalItem(850)->setItemsPerPage(10)->setCurrentPage(8)->setShowFirstLas
 $var->getTotalPage();              // 85 Return integer: number of page needed 
 $var->getOffset();                 // 70 Return integer: offset starting value 
 $var->getHaveToPaginate();         // true Return boolean: do you need to display pagination 
+$var->getNextPage();               // 9 Return integer 
+$var->getPreviousPage();           // 7 Return integer
 
 $t = $var->getBasicView();         // Return array: return simple array for creating pager
 
