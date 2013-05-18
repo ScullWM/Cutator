@@ -84,4 +84,32 @@ class Cutator extends atoum\test
         $ClassToTest->setTotalItem(100)->setItemsPerPage(10)->setCurrentPage(9)->setShowFirstLast(false)->setMaxLinks(6);
         $this->assert->array($ClassToTest->getBasicView())->isEqualTo(array('6'=>'6','7'=>'7','8'=>'8','9'=>'9','10'=>'10'));
     }
+
+
+    public function testgetNextPage()
+    {
+        $ClassToTest = new TestedClass\Cutator();
+        $ClassToTest->setTotalItem(99)->setItemsPerPage(10)->setCurrentPage(1)->setShowFirstLast(false)->setMaxLinks(10);
+        $this->assert->integer($ClassToTest->getNextPage())->isEqualTo(2);
+
+        $ClassToTest->setCurrentPage(2);
+        $this->assert->integer($ClassToTest->getNextPage())->isEqualTo(3);
+
+        $ClassToTest->setCurrentPage(10);
+        $this->assert->boolean($ClassToTest->getNextPage())->isEqualTo(false);
+    }
+
+
+    public function testgetPreviousPage()
+    {
+        $ClassToTest = new TestedClass\Cutator();
+        $ClassToTest->setTotalItem(99)->setItemsPerPage(10)->setCurrentPage(1)->setShowFirstLast(false)->setMaxLinks(10);
+        $this->assert->boolean($ClassToTest->getPreviousPage())->isEqualTo(false);
+
+        $ClassToTest->setCurrentPage(2);
+        $this->assert->integer($ClassToTest->getPreviousPage())->isEqualTo(1);
+
+        $ClassToTest->setCurrentPage(10);
+        $this->assert->integer($ClassToTest->getPreviousPage())->isEqualTo(9);
+    }
 }

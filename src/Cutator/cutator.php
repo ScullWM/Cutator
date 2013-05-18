@@ -96,7 +96,7 @@ class Cutator
     public function getPreviousPage()
     {
         $previousPage = $this->currentPage-1;
-        if($previousPage>$this->getTotalPage()) {
+        if($previousPage<=0) {
             return false;
         }
 
