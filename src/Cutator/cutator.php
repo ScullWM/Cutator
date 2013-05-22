@@ -5,7 +5,6 @@
  * Copyright (c) 2013, Thomas Perez <thomas@scullwm.com>.
  * All rights reserved.
  *
- *
  * @package    Cutator
  * @author     Thomas Perez <thomas@scullwm.com>
  * @copyright  2013 Thomas Perez <thomas@scullwm.com>
