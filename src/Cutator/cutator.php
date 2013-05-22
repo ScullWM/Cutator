@@ -72,7 +72,7 @@ class Cutator
 
     public function getDeveloppementMethod()
     {
-        
+        return true;
     }
 
     /**

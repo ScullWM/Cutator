@@ -1,1 +1,3 @@
 tests/units/basic.php
+composer.lock
+composer.phar
