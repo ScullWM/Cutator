@@ -70,6 +70,11 @@ class Cutator
         return $linksView;
     }
 
+    public function getDeveloppementMethod()
+    {
+        
+    }
+
     /**
      * Return NextPage int
      * return false if there is no next page
