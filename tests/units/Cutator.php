@@ -10,6 +10,25 @@ use \Cutator as TestedClass;
 
 class Cutator extends atoum\test
 {
+    public function testsetShowFirstLast()
+    {
+        $ClassToTest = new TestedClass\Cutator();
+        $ClassToTest->setShowFirstLast(true);
+        $this->assert->boolean($ClassToTest->getShowFirstLast())->isEqualTo(true);
+
+        $ClassToTest = new TestedClass\Cutator();
+        $ClassToTest->setShowFirstLast(false);
+        $this->assert->boolean($ClassToTest->getShowFirstLast())->isEqualTo(false);
+
+        $ClassToTest = new TestedClass\Cutator();
+        $ClassToTest->setShowFirstLast(1);
+        $this->assert->boolean($ClassToTest->getShowFirstLast())->isEqualTo(true);
+
+        $ClassToTest = new TestedClass\Cutator();
+        $ClassToTest->setShowFirstLast(0);
+        $this->assert->boolean($ClassToTest->getShowFirstLast())->isEqualTo(false);
+    }
+
     public function testgetTotalPage()
     {
         $ClassToTest = new TestedClass\Cutator();
