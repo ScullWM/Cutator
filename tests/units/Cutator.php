@@ -53,6 +53,29 @@ class Cutator extends atoum\test
     }
 
 
+    public function testsetMaxLinks()
+    {
+        $ClassToTest = new TestedClass\Cutator();
+        $ClassToTest->setMaxLinks(1);
+        $this->assert->integer($ClassToTest->getMaxLinks())->isEqualTo(1);        
+
+        $ClassToTest = new TestedClass\Cutator();
+        $ClassToTest->setMaxLinks(0);
+        $this->assert->integer($ClassToTest->getMaxLinks())->isEqualTo(0);        
+
+        $ClassToTest = new TestedClass\Cutator();
+        $ClassToTest->setMaxLinks(150);
+        $this->assert->integer($ClassToTest->getMaxLinks())->isEqualTo(150);        
+
+        $ClassToTest = new TestedClass\Cutator();
+        $ClassToTest->setMaxLinks(99);
+        $this->assert->integer($ClassToTest->getMaxLinks())->isEqualTo(99);        
+
+        $ClassToTest = new TestedClass\Cutator();
+        $ClassToTest->setMaxLinks(25)->setMaxLinks(50);
+        $this->assert->integer($ClassToTest->getMaxLinks())->isEqualTo(50);        
+    }
+
     public function testgetTotalPage()
     {
         $ClassToTest = new TestedClass\Cutator();
