@@ -29,6 +29,30 @@ class Cutator extends atoum\test
         $this->assert->boolean($ClassToTest->getShowFirstLast())->isEqualTo(false);
     }
 
+    public function testsetTotalItem()
+    {
+        $ClassToTest = new TestedClass\Cutator();
+        $ClassToTest->setTotalItem(1);
+        $this->assert->integer($ClassToTest->getTotalItem())->isEqualTo(1);        
+
+        $ClassToTest = new TestedClass\Cutator();
+        $ClassToTest->setTotalItem(0);
+        $this->assert->integer($ClassToTest->getTotalItem())->isEqualTo(0);        
+
+        $ClassToTest = new TestedClass\Cutator();
+        $ClassToTest->setTotalItem(150);
+        $this->assert->integer($ClassToTest->getTotalItem())->isEqualTo(150);        
+
+        $ClassToTest = new TestedClass\Cutator();
+        $ClassToTest->setTotalItem(99);
+        $this->assert->integer($ClassToTest->getTotalItem())->isEqualTo(99);        
+
+        $ClassToTest = new TestedClass\Cutator();
+        $ClassToTest->setTotalItem(25)->setTotalItem(50);
+        $this->assert->integer($ClassToTest->getTotalItem())->isEqualTo(50);        
+    }
+
+
     public function testgetTotalPage()
     {
         $ClassToTest = new TestedClass\Cutator();
