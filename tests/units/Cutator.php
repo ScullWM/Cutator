@@ -76,6 +76,26 @@ class Cutator extends atoum\test
         $this->assert->integer($ClassToTest->getMaxLinks())->isEqualTo(50);        
     }
 
+
+    public function testgetItemsPerPage()
+    {
+        $ClassToTest = new TestedClass\Cutator();
+        $ClassToTest->setItemsPerPage(99);
+        $this->assert->integer($ClassToTest->getItemsPerPage())->isEqualTo(99);
+
+        $ClassToTest = new TestedClass\Cutator();
+        $ClassToTest->setItemsPerPage(1);
+        $this->assert->integer($ClassToTest->getItemsPerPage())->isEqualTo(1);
+
+        $ClassToTest = new TestedClass\Cutator();
+        $ClassToTest->setItemsPerPage(0);
+        $this->assert->integer($ClassToTest->getItemsPerPage())->isEqualTo(0);
+
+        $ClassToTest = new TestedClass\Cutator();
+        $ClassToTest->setItemsPerPage(99)->setItemsPerPage(20);
+        $this->assert->integer($ClassToTest->getItemsPerPage())->isEqualTo(20);
+    }
+
     public function testgetTotalPage()
     {
         $ClassToTest = new TestedClass\Cutator();
