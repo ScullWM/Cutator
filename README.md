@@ -48,4 +48,5 @@ If you don't wan't to install thousand dependency for simple offset calcul
 
 ## Todo
 - Special extension for twitter bootstrap render
+- Create extension for array pagination
 - Write more tests
