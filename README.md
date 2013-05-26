@@ -1,6 +1,9 @@
 # Cutator
 Simple pagination class for PHP 5.3. Define you value, get the result.
 
+## Why
+If you don't wan't to install thousand dependency for simple offset calcul
+
 ## Usage
 ```php
 <?php
@@ -18,13 +21,14 @@ $var->setTotalItem(850)->setItemsPerPage(10)->setCurrentPage(8)->setShowFirstLas
 
 $var->getTotalPage();              // 85 Return integer: number of page needed 
 $var->getOffset();                 // 70 Return integer: offset starting value 
-$var->getHaveToPaginate();         // true Return boolean: do you need to display pagination 
+$var->getHaveToPaginate();         // True Return boolean: do you need to display pagination 
 $var->getNextPage();               // 9 Return integer 
 $var->getPreviousPage();           // 7 Return integer
 
 $t = $var->getBasicView();         // Return array: return simple array for creating pager
 
 print_r($t);
+
 /*
 Array
 (
@@ -42,10 +46,6 @@ Array
 */
 ?>
 ```
-
-## Why
-If you don't wan't to install thousand dependency for simple offset calcul
-
 ## Todo
 - Special extension for twitter bootstrap render
 - Create extension for array pagination
