@@ -23,8 +23,8 @@ class Cutator
     public $totalItem;
     public $showFirstLast = false;
     public $offset;
-    public $startName;
-    public $endName;
+    public $startName = 'Début';
+    public $endName = 'Fin';
 
     /**
      * if array given, will dispatch value to class's attributes
