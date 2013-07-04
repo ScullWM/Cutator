@@ -3,7 +3,7 @@
 namespace Cutator\tests\units;
 
 require_once __DIR__.'/../../vendor/autoload.php';
-include_once __DIR__.'/../../src/Cutator/cutator.php';
+require_once __DIR__.'/../../src/Cutator/cutator.php';
 
 use \mageekguy\atoum;
 use \Cutator as TestedClass;
