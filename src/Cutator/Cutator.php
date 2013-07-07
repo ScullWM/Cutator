@@ -10,7 +10,7 @@
  * @copyright  2013 Thomas Perez <thomas@scullwm.com>
  * @license    http://www.opensource.org/licenses/bsd-license.php  BSD License
  * @link       https://github.com/scullwm/Cutator
- * @version    Release: 0.1.1
+ * @version    Release: 0.1
  */
 
 namespace Cutator;
