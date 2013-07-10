@@ -4,7 +4,6 @@ namespace Cutator\tests\units;
 
 require_once __DIR__.'/../../vendor/autoload.php';
 
-
 use \mageekguy\atoum;
 use \Cutator as TestedClass;
 
