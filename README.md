@@ -46,6 +46,9 @@ Array
 */
 ?>
 ```
+## Tests
+Test with Atoum
+php vendor/atoum/atoum/bin/atoum -f tests/units/Cutator.php
 
 ## Todo
 - Special extension for twitter bootstrap render
