@@ -15,7 +15,7 @@
 
 namespace Cutator;
 
-class Cutator implements \Countable
+class Cutator implements \Countable, \IteratorAggregate
 {
     public $currentPage = 1;
     public $itemsPerPage = 10;
@@ -252,5 +252,15 @@ class Cutator implements \Countable
     public function count()
     {
         return $this->getTotalItem();
+    }
+
+    /**
+     * Return current Iterator
+     *
+     * @return integer
+     */
+    public function getIterator()
+    {
+        return $this->getCurrentPage();
     }
 }

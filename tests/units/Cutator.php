@@ -211,4 +211,17 @@ class Cutator extends atoum\test
         $ClassToTest->setTotalItem(21);
         $this->assert->integer($ClassToTest->count())->isEqualTo(21);
     }
+
+    public function testgetIterator()
+    {
+        $ClassToTest = new TestedClass\Cutator();
+        $ClassToTest->setTotalItem(99)->setItemsPerPage(10)->setCurrentPage(1)->setShowFirstLast(false)->setMaxLinks(10);
+        $this->assert->integer($ClassToTest->getIterator())->isEqualTo(1);
+
+        $ClassToTest->setCurrentPage(4);
+        $this->assert->integer($ClassToTest->getIterator())->isEqualTo(4);
+
+        $ClassToTest->setCurrentPage(7);
+        $this->assert->integer($ClassToTest->getIterator())->isEqualTo(7);
+    }
 }
