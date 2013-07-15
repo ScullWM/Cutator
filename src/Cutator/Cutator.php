@@ -15,7 +15,7 @@
 
 namespace Cutator;
 
-class Cutator
+class Cutator implements \Countable
 {
     public $currentPage = 1;
     public $itemsPerPage = 10;
@@ -242,5 +242,15 @@ class Cutator
     public function getShowFirstLast()
     {
         return (bool) $this->showFirstLast;
+    }
+
+    /**
+     * Return Total item
+     *
+     * @return integer
+     */
+    public function count()
+    {
+        return $this->getTotalItem();
     }
 }

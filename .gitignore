@@ -1,3 +1,4 @@
 tests/units/basic.php
+vendor
 composer.lock
 composer.phar
