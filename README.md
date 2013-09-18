@@ -1,6 +1,8 @@
 # Cutator
 Simple pagination class for PHP 5.3. Define you value, get the result.
 
+[![Total Downloads](https://poser.pugx.org/scullwm/cutator/downloads.png)](https://packagist.org/packages/scullwm/cutator)
+
 ## Why
 If you don't wan't to install thousand dependency for simple offset calcul
 
