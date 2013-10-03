@@ -4,6 +4,6 @@ namespace Cutator\View;
 
 interface ViewInterface
 {
-	function render();
-	function renderMini();
+    function render();
+    function renderMini();
 }
