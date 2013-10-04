@@ -8,7 +8,9 @@
   "authors": [
     {
       "name": "Thomas Perez",
-      "email": "thomas@scullwm.com"
+      "email": "thomas@scullwm.com",
+      "homepage": "http://www.scullwm.com",
+      "role": "Developer"
     }
   ],
   "require": {
