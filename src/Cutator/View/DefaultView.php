@@ -27,9 +27,4 @@ class DefaultView extends Cutator\Cutator implements ViewInterface
 
         return $output;
     }
-
-    public function rendermini()
-    {
-
-    }
 }
