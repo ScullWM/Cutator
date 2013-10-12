@@ -5,7 +5,7 @@ namespace Cutator\View;
 
 use Cutator;
 
-class TwBootstrapView extends Cutator\CutatorView implements ViewInterface
+class TwBootstrapView extends Cutator\CutatorView implements Cutator\View\ViewInterface
 {
 
     private $htmlContainer   = '<ul class="pagination">{paginationContent}</ul>';

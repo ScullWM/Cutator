@@ -1,6 +1,6 @@
 <?php
 
-namespace Cutator\View;
+namespace Cutator\Adaptater;
 
 interface AdaptaterInterface
 {

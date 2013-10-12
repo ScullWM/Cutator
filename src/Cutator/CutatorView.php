@@ -16,7 +16,7 @@ class CutatorView extends Cutator
     private function getAllLinksRender($links)
     {
         $renderFunction = (isset($this->urlGenerator) && !empty($this->urlGenerator))?'getUrlServiceLinkRender':'getBasicLinkRender';
-        $links = array_map(array($this, $func), $links, array_keys($links));
+        $links = array_map(array($this, $renderFunction), $links, array_keys($links));
 
         return implode('', $links);
     }

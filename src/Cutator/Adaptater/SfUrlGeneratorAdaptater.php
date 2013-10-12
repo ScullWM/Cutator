@@ -1,11 +1,10 @@
 <?php
 
-
 namespace Cutator\Adaptater;
 
 use Cutator;
 
-class SfUrlGeneratorAdaptater extends Cutator\Cutator implements AdaptaterInterface
+class SfUrlGeneratorAdaptater extends Cutator\Cutator implements Cutator\AdaptaterInterface
 {
     private $urlGeneratorService;
     private $routeName;
@@ -22,8 +21,7 @@ class SfUrlGeneratorAdaptater extends Cutator\Cutator implements AdaptaterInterf
 
     public function getUrl($page)
     {
-        $this->parameters[$pageParameter] = $page;
-
+        $this->parameters[$this->pageParameter] = $page;
         return $this->urlGeneratorService->generate($this->routeName, $this->parameters);
     }
 }
