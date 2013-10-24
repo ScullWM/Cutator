@@ -4,5 +4,5 @@ namespace Cutator\Adaptater;
 
 interface AdaptaterInterface
 {
-    function getUrl();
+    public function getUrl($page);
 }

@@ -8,9 +8,9 @@ use Cutator;
 class TwBootstrapView extends Cutator\CutatorView implements Cutator\View\ViewInterface
 {
 
-    private $htmlContainer   = '<ul class="pagination">{paginationContent}</ul>';
-    private $itemCurrentLink = '<li class="active"><a href="{itemUrl}">{itemPage} <span class="sr-only">(current)</span></a></li>';
-    private $itemLink        = '<li><a href="{itemUrl}">{itemPage}</a></li>';
+    protected $htmlContainer   = '<ul class="pagination">{paginationContent}</ul>';
+    protected $itemCurrentLink = '<li class="active"><a href="{itemUrl}">{itemPage} <span class="sr-only">(current)</span></a></li>';
+    protected $itemLink        = '<li><a href="{itemUrl}">{itemPage}</a></li>';
 
     /**
      * Render TwBootstrap html template
@@ -20,7 +20,7 @@ class TwBootstrapView extends Cutator\CutatorView implements Cutator\View\ViewIn
      */
     public function render()
     {
-        $items = $this->getLinksRender($this->getBasicView());
+        $items = $this->getAllLinksRender($this->getBasicView());
         $output = str_replace('{paginationContent}', $items, $this->htmlContainer);
 
         return (string) $output;

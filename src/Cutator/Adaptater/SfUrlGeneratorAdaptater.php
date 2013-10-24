@@ -4,7 +4,7 @@ namespace Cutator\Adaptater;
 
 use Cutator;
 
-class SfUrlGeneratorAdaptater extends Cutator\Cutator implements Cutator\AdaptaterInterface
+class SfUrlGeneratorAdaptater extends Cutator\Cutator implements Cutator\Adaptater\AdaptaterInterface
 {
     private $urlGeneratorService;
     private $routeName;
