@@ -1,0 +1,13 @@
+language: php
+
+php:
+    - 5.5
+    - 5.4
+    - 5.3
+
+before_script:
+    - curl -sS https://getcomposer.org/installer | php
+    - php composer.phar install
+
+script:
+    - php vendor/atoum/atoum/bin/atoum -f tests/units/Cutator.php
