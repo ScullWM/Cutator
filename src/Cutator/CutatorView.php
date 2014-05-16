@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Cutator;
 
 class CutatorView extends Cutator
