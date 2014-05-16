@@ -1,11 +1,11 @@
 <?php
 
-
 namespace Cutator\View;
 
-use Cutator;
+use Cutator\Cutator;
+use Cutator\View\ViewInterface;
 
-class DefaultView extends Cutator\Cutator implements Cutator\View\ViewInterface
+class DefaultView extends Cutator implements ViewInterface
 {
 
     /**

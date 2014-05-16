@@ -1,11 +1,11 @@
 <?php
 
-
 namespace Cutator\View;
 
-use Cutator;
+use Cutator\Cutator;
+use Cutator\View\ViewInterface;
 
-class TwBootstrapView extends Cutator\CutatorView implements Cutator\View\ViewInterface
+class TwBootstrapView extends Cutator implements ViewInterface
 {
 
     protected $htmlContainer   = '<ul class="pagination">{paginationContent}</ul>';

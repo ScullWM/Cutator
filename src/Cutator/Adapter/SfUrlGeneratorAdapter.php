@@ -1,10 +1,11 @@
 <?php
 
-namespace Cutator\Adaptater;
+namespace Cutator\Adapter;
 
-use Cutator;
+use Cutator\Cutator;
+use Cutator\Adapter\AdapterInterface
 
-class SfUrlGeneratorAdaptater extends Cutator\Cutator implements Cutator\Adaptater\AdaptaterInterface
+class SfUrlGeneratorAdapter extends Cutator implements AdapterInterface
 {
     private $urlGeneratorService;
     private $routeName;
