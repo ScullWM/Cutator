@@ -16,27 +16,40 @@
 
 namespace Cutator;
 
+use Cutator\Adapter\SfUrlGeneratorAdapter;
+
 class Cutator implements \Countable, \IteratorAggregate
 {
-    public $currentPage = 1;
-    public $itemsPerPage = 10;
-    public $maxLinks = 10;
-    public $totalItem;
-    public $showFirstLast = false;
-    public $offset;
-    public $startName = 'Début';
-    public $endName = 'Fin';
+    protected $currentPage   = 1;
+    protected $itemsPerPage  = 10;
+    protected $maxLinks      = 10;
+    protected $showFirstLast = false;
+    protected $view          = 'Default';
+    protected $totalItem;
+    protected $offset;
+    public    $startName     = 'Début';
+    public    $endName       = 'Fin';
 
     /**
      * if array given, will dispatch value to class's attributes
+     * Some property launch some events
      *
+     * @version  17-05-14
      * @param array $array
      */
-    public function __construct(array $array = array())
+    public function __construct(array $parameters = array())
     {
-        foreach ($array as $key=>$value) {
-            if (array_key_exists($key, get_object_vars($this))) {
-                $this->$key = $value;
+        foreach ($parameters as $property=>$value) {
+            if($property=="urlGenerator"){
+                if(!is_object($value)) throw new \Exception("UrlGenerator is not an object!", 1);                
+                // Only SfUrlGeneratorAdapter is available at this time
+                $this->urlGenerator = new SfUrlGeneratorAdapter($value);
+
+            }elseif (property_exists($this, $property)) {
+                $this->$property = $value;
+
+            }else {
+                trigger_error("Unexistant property could not been set");
             }
         }
     }
