@@ -17,6 +17,8 @@
 namespace Cutator;
 
 use Cutator\Base\CutatorBase;
+use Cutator\Exception\UrlGeneratorException;
+use Cutator\Exception\ViewException;
 
 class Cutator extends CutatorBase
 {
@@ -41,12 +43,12 @@ class Cutator extends CutatorBase
     {
         foreach ($parameters as $property=>$value) {
             if($property=="urlGenerator"){
-                if(!is_object($value)) throw new \Exception("UrlGenerator is not an object!", 1);
+                if(!is_object($value)) throw new UrlGeneratorException("UrlGenerator is not an object!", 1);
                 // Only SfUrlGeneratorAdapter is available at this time
                 $this->urlGenerator = $value;
 
             }elseif($property=="view"){
-                if(!is_object($value)) throw new \Exception("View Engine is not an object!", 1);
+                if(!is_object($value)) throw new ViewException("View is not an object!", 1);
                 $this->view = $value;
 
             }elseif (property_exists($this, $property)) {
