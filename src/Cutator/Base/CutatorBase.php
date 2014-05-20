@@ -16,7 +16,7 @@
 
 namespace Cutator\Base;
 
-class CutatorBase implements \Countable, \IteratorAggregate
+abstract class CutatorBase implements \Countable, \IteratorAggregate
 {
 
     /**
