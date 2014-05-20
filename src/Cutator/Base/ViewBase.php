@@ -92,4 +92,19 @@ abstract class ViewBase
 
         return $this;
     }
+
+    /**
+     * Give to UrlGenerator all information
+     *
+     * @version  20-05-14
+     * @param  string $routeName     RouteName in use
+     * @param  array  $parameters    List of extra parameter for the url
+     * @param  string $pageParameter Parameter name used for paginate
+     */
+    public function hydrateRouter($routeName, array $parameters = array(), $pageParameter = 'page')
+    {
+        $this->urlGenerator->setRouteName($routeName);
+        $this->urlGenerator->setParameters($parameters);
+        $this->urlGenerator->setPageParameter($pageParameter);
+    }
 }

@@ -2,19 +2,13 @@
 
 namespace Cutator\Adapter;
 
-use Cutator\Cutator;
 use Cutator\Adapter\AdapterInterface;
+use Cutator\Adapter\UrlGeneratorAdapter;
 
-class SfUrlGeneratorAdapter extends Cutator implements AdapterInterface
+class SfUrlGeneratorAdapter extends UrlGeneratorAdapter implements AdapterInterface
 {
-    private $urlGeneratorService;
-    private $routeName;
-    private $parameters;
-    private $pageParameter;
-
-    public function __construct($urlGeneratorService, $routeName, $parameters, $pageParameter = 'page')
+    public function setUrlInfo($routeName, array $parameters = array(), $pageParameter = 'page')
     {
-		$this->urlGeneratorService = $urlGeneratorService;
 		$this->routeName           = $routeName;
 		$this->parameters          = $parameters;
 		$this->pageParameter       = $pageParameter;

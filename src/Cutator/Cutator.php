@@ -43,7 +43,7 @@ class Cutator extends CutatorBase
     {
         foreach ($parameters as $property=>$value) {
             if($property=="view"){
-                if(!is_object($value)) throw new ViewException("View is not an object!", 1);
+                if(!is_object($value)) throw new ViewException("View is not an object!");
                 $this->view = $value;
 
             }elseif (property_exists($this, $property)) {
@@ -93,9 +93,24 @@ class Cutator extends CutatorBase
      */
     public function getTemplateView()
     {
-        if(empty($this->view)) throw new ViewException("No view set", 1);
+        if(empty($this->view)) throw new ViewException("No view set");
         $this->view->setBasicView($this->getBasicView());        
 
         return (string) $this->view->render();
+    }
+
+    /**
+     * Set information to display router
+     *
+     * @version  20-05-14
+     * @param  string $routeName     RouteName in use
+     * @param  array  $parameters    List of extra parameter for the url
+     * @param  string $pageParameter Parameter name used for paginate
+     */
+    public function setUrlInfo($routeName, array $parameters = array(), $pageParameter = 'page')
+    {
+        if(empty($this->view)) throw new ViewException("No view set");
+
+        $this->view->hydrateRouter($routeName, $parameters, $pageParameter);
     }
 }

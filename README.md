@@ -53,11 +53,15 @@ Array
 ```php
 <?php
 
-$view = new Cutator\View\TwBootstrapView();
-$view->setUrlGenerator($app['url_generator']);
+$urlGenerator = new Cutator\Adapter\SfUrlGeneratorAdapter($app['url_generator']);
+
+$view = new \Cutator\View\TwBootstrapView();
+$view->setUrlGenerator($urlGenerator);
 
 $cutator = new Cutator();
 $cutator->setView($view);
+
+$cutator->setUrlInfo('liste');
 
 echo $cutator->getTemplateView();
 ?>
@@ -68,6 +72,6 @@ Test with Atoum
 php vendor/atoum/atoum/bin/atoum -f tests/units/Cutator.php
 
 ## Todo
-- Special extension for twitter bootstrap render
 - Create extension for array pagination
 - Write more tests
+- Write Extension for Silex (serviceProvider)
