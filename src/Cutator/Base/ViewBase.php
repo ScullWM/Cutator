@@ -1,17 +1,17 @@
 <?php
 
-namespace Cutator;
+namespace Cutator\Base;
 
-class CutatorView extends Cutator
+abstract class ViewBase
 {
 
-	/**
-	 * Generate html output for pagination display
-	 *
-	 * @version  04-10-2013
-	 * @param  Array $links Render of getBasicView
-	 * @return String        Html content
-	 */
+    /**
+     * Generate html output for pagination display
+     *
+     * @version  04-10-2013
+     * @param  Array $links Render of getBasicView
+     * @return String        Html content
+     */
     protected function getAllLinksRender($links)
     {
         $renderFunction = (isset($this->urlGenerator) && !empty($this->urlGenerator))?'getUrlServiceLinkRender':'getBasicLinkRender';

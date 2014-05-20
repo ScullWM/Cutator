@@ -4,8 +4,9 @@ namespace Cutator\View;
 
 use Cutator\Cutator;
 use Cutator\View\ViewInterface;
+use Cutator\Base\ViewBase;
 
-class DefaultView implements ViewInterface
+class DefaultView extends ViewBase implements ViewInterface
 {
 
     /**
