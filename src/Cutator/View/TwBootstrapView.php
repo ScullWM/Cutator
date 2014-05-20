@@ -21,7 +21,7 @@ class TwBootstrapView extends ViewBase implements ViewInterface
      */
     public function render()
     {
-        $items = $this->getAllLinksRender($this->getBasicView());
+        $items  = $this->getAllLinksRender($this->list);
         $output = str_replace('{paginationContent}', $items, $this->htmlContainer);
 
         return (string) $output;

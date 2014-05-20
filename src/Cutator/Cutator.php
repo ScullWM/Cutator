@@ -26,7 +26,7 @@ class Cutator extends CutatorBase
     protected $itemsPerPage  = 10;
     protected $maxLinks      = 10;
     protected $showFirstLast = false;
-    protected $view          = 'Default';
+    protected $view          = null;
     protected $totalItem;
     protected $offset;
     public    $startName     = 'Début';
@@ -42,12 +42,7 @@ class Cutator extends CutatorBase
     public function __construct(array $parameters = array())
     {
         foreach ($parameters as $property=>$value) {
-            if($property=="urlGenerator"){
-                if(!is_object($value)) throw new UrlGeneratorException("UrlGenerator is not an object!", 1);
-                // Only SfUrlGeneratorAdapter is available at this time
-                $this->urlGenerator = $value;
-
-            }elseif($property=="view"){
+            if($property=="view"){
                 if(!is_object($value)) throw new ViewException("View is not an object!", 1);
                 $this->view = $value;
 
@@ -90,10 +85,17 @@ class Cutator extends CutatorBase
         return $linksView;
     }
 
+    /**
+     * Generator html code with View and url generator Engine
+     *
+     * @version  20-05-14
+     * @return [type] [description]
+     */
     public function getTemplateView()
     {
-        if(empty($this->urlGenerator)) throw new \Exception("UrlGenerator is not an object!", 1);
+        if(empty($this->view)) throw new ViewException("No view set", 1);
+        $this->view->setBasicView($this->getBasicView());        
 
-        
+        return (string) $this->view->render();
     }
 }

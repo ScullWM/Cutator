@@ -7,7 +7,7 @@ Simple pagination class for PHP 5.3. Define you value, get the result.
 ## Why
 If you don't wan't to install thousand dependency for simple offset calcul
 
-## Usage
+## Simple Usage
 ```php
 <?php
 
@@ -49,6 +49,20 @@ Array
 */
 ?>
 ```
+## View And url Generator Usage
+```php
+<?php
+
+$view = new Cutator\View\TwBootstrapView();
+$view->setUrlGenerator($app['url_generator']);
+
+$cutator = new Cutator();
+$cutator->setView($view);
+
+echo $cutator->getTemplateView();
+?>
+```
+
 ## Tests
 Test with Atoum
 php vendor/atoum/atoum/bin/atoum -f tests/units/Cutator.php

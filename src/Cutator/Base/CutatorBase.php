@@ -16,6 +16,9 @@
 
 namespace Cutator\Base;
 
+use Cutator\Exception\UrlGeneratorException;
+use Cutator\Exception\ViewException;
+
 abstract class CutatorBase implements \Countable, \IteratorAggregate
 {
 
@@ -211,5 +214,18 @@ abstract class CutatorBase implements \Countable, \IteratorAggregate
     public function getIterator()
     {
         return $this->getCurrentPage();
+    }
+
+    /**
+     * Set View Generator Engine, could be not defined
+     * 
+     * @param object $view Could be different object pattern
+     */
+    public function setView($view)
+    {
+        if(!is_object($view)) throw new ViewException("View is not an object!", 1);
+        $this->view = $view;
+
+        return $this;
     }
 }

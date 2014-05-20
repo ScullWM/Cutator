@@ -18,14 +18,12 @@ class DefaultView extends ViewBase implements ViewInterface
      */
     public function render()
     {
-        $list = $this->getBasicView();
-
         $output = '<ul>';
-        foreach($list as $lKey=>$lValue) {
+        foreach($this->list as $lKey=>$lValue) {
             $output .= '<li><a href="?page='.$lKey.'">'.$lValue.'</a></li>';
         }
         $output .= '</ul>';
 
-        return $output;
+        return (string) $output;
     }
 }

@@ -3,7 +3,7 @@
 namespace Cutator\Adapter;
 
 use Cutator\Cutator;
-use Cutator\Adapter\AdapterInterface
+use Cutator\Adapter\AdapterInterface;
 
 class SfUrlGeneratorAdapter extends Cutator implements AdapterInterface
 {
