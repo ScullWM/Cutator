@@ -233,6 +233,6 @@ class Cutator extends atoum\test
         // test ViewException
         $this->assert->exception(function()use($ClassToTest){
             return $ClassToTest->getTemplateView();
-        })->isInstanceOf('ViewException')->hasMessage('No view set');
+        })->hasMessage('No view set');
     }
 }

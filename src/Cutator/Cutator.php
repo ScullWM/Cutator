@@ -113,4 +113,15 @@ class Cutator extends CutatorBase
 
         $this->view->hydrateRouter($routeName, $parameters, $pageParameter);
     }
+
+    /**
+     * __toString method return generated view if everything is ok
+     *
+     * @version  21-05-14
+     * @return string Result of getTemplateView
+     */
+    public function __toString()
+    {
+        return $this->getTemplateView();
+    }
 }
