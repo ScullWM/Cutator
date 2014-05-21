@@ -224,4 +224,15 @@ class Cutator extends atoum\test
         $ClassToTest->setCurrentPage(7);
         $this->assert->integer($ClassToTest->getIterator())->isEqualTo(7);
     }
+
+    public function testgetTemplateView()
+    {
+        $ClassToTest = new TestedClass\Cutator();
+        $ClassToTest->setTotalItem(99)->setItemsPerPage(10)->setCurrentPage(1)->setShowFirstLast(false)->setMaxLinks(10);
+
+        // test ViewException
+        $this->assert->exception(function()use($ClassToTest){
+            return $ClassToTest->getTemplateView();
+        })->isInstanceOf('ViewException')->hasMessage('No view set');
+    }
 }

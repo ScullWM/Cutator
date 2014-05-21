@@ -53,12 +53,12 @@ Array
 ```php
 <?php
 
-$urlGenerator = new Cutator\Adapter\SfUrlGeneratorAdapter($app['url_generator']);
+$urlGenerator = new \Cutator\Adapter\SfUrlGeneratorAdapter($app['url_generator']);
 
 $view = new \Cutator\View\TwBootstrapView();
 $view->setUrlGenerator($urlGenerator);
 
-$cutator = new Cutator();
+$cutator = new Cutator\Cutator();
 $cutator->setView($view);
 
 $cutator->setUrlInfo('liste');

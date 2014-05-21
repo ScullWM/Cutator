@@ -29,7 +29,7 @@ abstract class ViewBase
     protected function getAllLinksRender($links)
     {
         $renderFunction = (isset($this->urlGenerator) && !empty($this->urlGenerator))?'getUrlServiceLinkRender':'getBasicLinkRender';
-        $links = array_map(array($this, $renderFunction), $links, array_keys($links));
+        $links          = array_map(array($this, $renderFunction), $links, array_keys($links));
 
         return implode('', $links);
     }
@@ -62,7 +62,7 @@ abstract class ViewBase
     {
         $link    = $this->itemLink;
         $itemUrl = $this->urlGenerator->getUrl($pageKey);
-        $link    = str_replace('{itemUrl}', $pageKey, $link);
+        $link    = str_replace('{itemUrl}', $itemUrl, $link);
         $link    = str_replace('{itemPage}', $page, $link);
         return $link;
     }
